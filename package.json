@@ -1,0 +1,51 @@
+{
+  "name": "hydroid",
+  "version": "0.0.1",
+  "homepage": "https://github.com/LucianBuzzo/hydroid",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/LucianBuzzo/hydroid.git"
+  },
+  "author": "Lucian Buzzo <lucian.buzzo@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/register": "^7.0.0",
+    "ava": "^0.25.0",
+    "eslint": "^5.8.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsdoc": "^3.9.1",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "ispy": "~0.1.2",
+    "jsdom": "^13.0.0",
+    "nyc": "^13.1.0",
+    "observable": "~2.1.2",
+    "simulate": "0.0.3",
+    "tape": "^4.9.1",
+    "versionist": "^3.0.2"
+  },
+  "scripts": {
+    "test": "nyc --reporter=lcov ava",
+    "lint": "eslint index.js test",
+    "ci": "npm run lint && npm test",
+    "version-up": "versionist && ./scripts/add-version-tag.js"
+  },
+  "ava": {
+    "timeout": "2m",
+    "verbose": true,
+    "concurrency": 3,
+    "failFast": true,
+    "files": [
+      "test/*.js"
+    ]
+  },
+  "dependencies": {
+    "jss": "^9.8.7",
+    "jss-preset-default": "^4.5.0",
+    "uuid": "^3.3.2"
+  }
+}
