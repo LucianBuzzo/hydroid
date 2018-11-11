@@ -1,6 +1,6 @@
 {
   "name": "hydroid",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/LucianBuzzo/hydroid",
   "repository": {
     "type": "git",
@@ -8,6 +8,13 @@
   },
   "author": "Lucian Buzzo <lucian.buzzo@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "browserify index.js -o browser.js --s Hydroid -t babelify --presets @babel/preset-env",
+    "test": "nyc --reporter=lcov ava",
+    "lint": "eslint index.js test",
+    "ci": "npm run lint && npm test",
+    "version-up": "versionist && ./scripts/add-version-tag.js"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
@@ -28,11 +35,10 @@
     "tape": "^4.9.1",
     "versionist": "^3.0.2"
   },
-  "scripts": {
-    "test": "nyc --reporter=lcov ava",
-    "lint": "eslint index.js test",
-    "ci": "npm run lint && npm test",
-    "version-up": "versionist && ./scripts/add-version-tag.js"
+  "dependencies": {
+    "jss": "^9.8.7",
+    "jss-preset-default": "^4.5.0",
+    "uuid": "^3.3.2"
   },
   "ava": {
     "timeout": "2m",
@@ -42,10 +48,5 @@
     "files": [
       "test/*.js"
     ]
-  },
-  "dependencies": {
-    "jss": "^9.8.7",
-    "jss-preset-default": "^4.5.0",
-    "uuid": "^3.3.2"
   }
 }

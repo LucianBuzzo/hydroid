@@ -62,7 +62,7 @@ const parseClass = (string, source) => {
 	return element
 }
 
-const hydroid = (tag, config = {}) => {
+const Hydroid = (tag, config = {}) => {
 	const root = isNode(tag) ? tag : parseClass(tag)
 
 	const parseArg = (arg) => {
@@ -75,7 +75,7 @@ const hydroid = (tag, config = {}) => {
 		if (Array.isArray(arg)) {
 			// There might be a better way to handle this...
 			return arg.forEach(([ tagName, ...markup ]) => {
-				root.appendChild(hydroid(tagName, {
+				root.appendChild(Hydroid(tagName, {
 					markup
 				}))
 			})
@@ -164,4 +164,4 @@ const hydroid = (tag, config = {}) => {
 	return root
 }
 
-export default hydroid
+export default Hydroid
