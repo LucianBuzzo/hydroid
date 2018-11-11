@@ -154,11 +154,13 @@ const Hydroid = (tag, config = {}) => {
 
 	if (config.style) {
 		const className = uuid().slice(0, 8)
-		jss.createStyleSheet({
-			className: config.style
+		const {
+			classes
+		} = jss.createStyleSheet({
+			[className]: config.style
 		}).attach()
 
-		addClass(root, className)
+		addClass(root, classes[className])
 	}
 
 	return root

@@ -14,6 +14,8 @@ var _uuid = _interopRequireDefault(require("uuid"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest(); }
@@ -196,11 +198,10 @@ var Hydroid = function Hydroid(tag) {
   if (config.style) {
     var className = (0, _uuid.default)().slice(0, 8);
 
-    _jss.default.createStyleSheet({
-      className: config.style
-    }).attach();
+    var _jss$createStyleSheet = _jss.default.createStyleSheet(_defineProperty({}, className, config.style)).attach(),
+        classes = _jss$createStyleSheet.classes;
 
-    addClass(root, className);
+    addClass(root, classes[className]);
   }
 
   return root;
