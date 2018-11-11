@@ -90,8 +90,6 @@ var Hydroid = function Hydroid(tag) {
   var root = isNode(tag) ? tag : parseClass(tag);
 
   var parseArg = function parseArg(arg) {
-    console.log('ARG', arg);
-
     if (arg === null || typeof arg === 'undefined') {
       return null;
     }
@@ -122,7 +120,6 @@ var Hydroid = function Hydroid(tag) {
     }
 
     if (_typeof(arg) === 'object') {
-      console.log('MAPPING OBJECT');
       return mapObject(arg, function (keyValue, key) {
         if (typeof keyValue === 'function') {
           if (/^on\w+/.test(key)) {

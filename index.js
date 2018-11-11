@@ -66,8 +66,6 @@ const Hydroid = (tag, config = {}) => {
 	const root = isNode(tag) ? tag : parseClass(tag)
 
 	const parseArg = (arg) => {
-		console.log('ARG', arg)
-
 		if (arg === null || typeof arg === 'undefined') {
 			return null
 		}
@@ -99,7 +97,6 @@ const Hydroid = (tag, config = {}) => {
 		}
 
 		if (typeof arg === 'object') {
-			console.log('MAPPING OBJECT')
 			return mapObject(arg, (keyValue, key) => {
 				if (typeof keyValue === 'function') {
 					if (/^on\w+/.test(key)) {
