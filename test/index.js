@@ -10,11 +10,10 @@ global.document = VDOM.window.document
 const {
 	test
 } = require('ava')
-const observable = require('observable')
 const spy = require('ispy')
 const simu = require('simulate')
 
-const h = require('../').default
+const h = require('../').Hydroid
 
 test('Can render simple elements', (t) => {
 	t.is(h('h1').outerHTML, '<h1></h1>')
@@ -242,7 +241,7 @@ test('Can attach to an existing node', (t) => {
 	}).outerHTML, '<div><h1>hello world</h1></div>')
 })
 
-/*
+/* Re-enable once I figure this out in JSdom
 test('Can add styles', (t) => {
 	const element = h('h1', {
 		markup: [
@@ -259,4 +258,3 @@ test('Can add styles', (t) => {
 	t.is(window.getComputedStyle(element)['font-size'], '36px')
 })
 */
-
