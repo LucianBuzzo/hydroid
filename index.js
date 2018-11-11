@@ -73,6 +73,15 @@ const Hydroid = (tag, config = {}) => {
 		if (Array.isArray(arg)) {
 			// There might be a better way to handle this...
 			return arg.forEach(([ tagName, ...markup ]) => {
+				const renderFlag = markup[markup.length - 1]
+				if (typeof renderFlag === 'boolean') {
+					if (renderFlag) {
+						markup.pop()
+					} else {
+						return
+					}
+				}
+
 				root.appendChild(Hydroid(tagName, {
 					markup
 				}))

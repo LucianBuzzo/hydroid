@@ -241,6 +241,24 @@ test('Can attach to an existing node', (t) => {
 	}).outerHTML, '<div><h1>hello world</h1></div>')
 })
 
+test('Can prevent rendering with a boolean', (t) => {
+	t.is(h('div', {
+		markup: [
+			[
+				[ 'h1', 'Hello world', false ]
+			]
+		]
+	}).outerHTML, '<div></div>')
+
+	t.is(h('div', {
+		markup: [
+			[
+				[ 'h1', 'Hello world', true ]
+			]
+		]
+	}).outerHTML, '<div><h1>Hello world</h1></div>')
+})
+
 // Re-enable once I figure this out in JSdom
 /*
 test.only('Can add styles', (t) => {
