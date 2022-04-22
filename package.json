@@ -40,7 +40,7 @@
   "dependencies": {
     "jss": "^9.8.7",
     "jss-preset-default": "^4.5.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.4.0"
   },
   "ava": {
     "timeout": "2m",
