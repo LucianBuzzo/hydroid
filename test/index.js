@@ -128,6 +128,18 @@ test('Setting properties ignores prototype properties', (t) => {
 	t.is(checkbox.outerHTML, '<input name="yes" type="checkbox">')
 })
 
+test('Can set properties from objects without a prototype', (t) => {
+	const options = Object.create(null)
+	options.name = 'yes'
+	options.type = 'checkbox'
+
+	const checkbox = h('input', {
+		markup: [ options ]
+	})
+
+	t.is(checkbox.outerHTML, '<input name="yes" type="checkbox">')
+})
+
 test('Can register event handlers using element attributes', (t) => {
 	const onClick = spy()
 	const para = h('p', {
